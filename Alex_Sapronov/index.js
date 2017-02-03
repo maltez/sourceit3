@@ -7,4 +7,5 @@ var test = function()
 console.log('Congratulation!! You are God');
      }
    else console.log ('Get out of there!!');
+   alert('END')
 }
