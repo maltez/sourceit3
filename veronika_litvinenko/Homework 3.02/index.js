@@ -12,14 +12,10 @@ if (name === 'Jesus' && age === 33) {
 
 // Home task 3.02
 
-var name;
-var gender;
-name = prompt('Enter your name');
-gender = prompt('Enter your gender');
-if (gender === 'female') {
+var name = prompt('Enter your name');
+var gender = confirm('Are you male?');
+if (gender === false) {
     console.log('Hello,' + ' ' + 'Mrs' + ' ' + name + '!');
-} else if (gender === 'male') {
-    console.log('Hello,' + ' ' + 'Mr' + ' ' + name + '!');
 } else {
-    console.log('Please, enter valid information');
+    console.log('Hello,' + ' ' + 'Mr' + ' ' + name + '!');
 };
