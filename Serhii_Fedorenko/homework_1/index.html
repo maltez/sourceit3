@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript">
+        // Take the user's name
+        var name = prompt('What is your name?');
+        // Take the user's gender
+        var gender = confirm('Are you a male?');
+        // Check on gender, marriage and outputs the result and user name
+        if (gender) {
+                document.write('Greetings, Mr. ' + name);
+            } else if (confirm('Are you married?')) {
+                document.write('Greetings, Mrs. ' + name);
+            } else {
+                document.write('Greetings, Miss ' + name);
+            }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
