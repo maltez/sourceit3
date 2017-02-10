@@ -1,7 +1,7 @@
 var sum=0, number, avarege;	//before calculations
 	function question() { 	//ask user number and adds them
 		for (i = 0; i < 5; i++ ) {
-		number= +prompt('White your number');
+		number= +prompt('Write your number');
 		sum= sum+number;
 	} 
 	function avarege() { 		//calculates average for user
