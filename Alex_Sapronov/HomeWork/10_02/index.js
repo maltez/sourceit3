@@ -1,5 +1,8 @@
 var array = [], array_2demention = [];
 
+function even_key(arr)//Ex.5
+{}
+
 function not_even_key(arr)//Ex.6
 {
     var arr_new = [], j = 0;
