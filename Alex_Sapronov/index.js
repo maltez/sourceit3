@@ -35,7 +35,7 @@ console.log(fruits_2);
 //console.log(parametr_in_object('islord', basil));
 //console.log(parametr_in_object('nan', basil));
 //for_key_in(basil);*/
-var array=[];
+/*var array=[];
 function not_even(arr)
     {   
         var arr_new=[], j=0;
@@ -50,5 +50,12 @@ for (var i=0; i<10; i++)//налолним массив рандомными ц�
     {
        array[i] = Math.floor(Math.random() * (100 - 1) + 1);
     }
-console.log(not_even(array));
+console.log(not_even(array));*/
+'use strict' - ES5;//нельзя записывать неявно переменные без вара
+a = 1;
 
+function tes(a, b=1)
+    {
+        var a=1;
+        
+    }
