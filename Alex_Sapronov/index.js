@@ -85,15 +85,87 @@ return;
 }
 
 lever_first_create_second(0 , 2 , 'var s = 0; id = id+1 ; return; ');
+
+var a;
+try //если в трае ошибка то срабатывает кеч
+{
+   a(); 
+}
+catch(err)//err ошибка не нуль
+{
+    console.log(err);
+    console.log('be a')
+}
+console.log ('happy')
+
+
+try 
+{
+   throw new Error('fuck'); //генерируем ошибку со значением строки
+}
+catch(err)//
+{
+    console.log(err);
+    console.log('be a')
+}
+console.log ('happy')
 */
 
-var a=1;
-var z = function()
-{
-a=2;
-return function(){
-    a=3;
- }
+var a = [1,3,4,3,7,3];
+
+var z = function (arr){
+    var c = []; 
+    arr.forEach( 
+        function(elt){ 
+            if (typeof elt !== 'number'){
+                throw new Error('new')
+            }
+                c.push(elt+2);
+            });
+    return c;
+    }
+console.log(z(a));
+var l = function (arr){
+return a.map(
+    function(elt){
+    elt= elt+2;
+})
 }
-console.log(a)
-var l 
+console.log(l(a));
+
+var m = function (arr){
+return a.filter(
+    function(elt){
+    return elt%2 == 0;
+})
+}
+console.log(m(a));
+
+var one = function(a,b,func){
+    if (typeof func != 'function'){
+        throw newError('1');
+    }
+    return func (a,b)
+}
+console.log( one (1,2,function(a,b){return a+b;}) );
+
+
+
+function sum_f(func,func2,a,b){
+    if (typeof func !== 'function'){
+        throw newError('1');
+    }
+    if (typeof func2 !== 'function'){
+        throw newError('2');
+    }
+    return ( func(a,b) + func2(a,b) );
+}
+console.log(sum_f(function(a,b){return a*b}, function(a,b){return a/b},2,3));
+
+var ar = 'string of value 23'.slice('');//оставляет чётные элементы
+function del_space(ar){
+   return ar.filter(function(el){
+       return el % 2 === 0;
+   });
+}
+console.log (del_space(ar));

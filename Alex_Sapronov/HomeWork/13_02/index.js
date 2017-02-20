@@ -1,14 +1,18 @@
-var arr1=[], arr2=[], arr3=[];
-var a_ind=true;
-var a='a';
-var crypt_index = 0;
-var key_crypt = 'It was in July, 1805, and the speaker was the well-known Anna Pavlovna Scherer, maid of honor and favorite of the Empress Marya Fedorovna. With these words she greeted Prince Vasili Kuragin, a man of high rank and importance, who was the first to arrive at her reception. Anna Pavlovna had had a cough for some days. She was, as she said, suffering from la grippe; grippe being then a new word inSt. Petersburg, used only by the elite. '
-function int_massiv_creator(ix)//array 2+ dimention generator (0)=0x dimention array have up nambers (!0)=0x ramdom
-{ 
-  var x=0,y=0,z=0;//dimentions of array
-  var array = [];//new array to return it
+﻿var arr1=[], arr2=[], arr3=[];
+var a_ind = true;
+var a = 'a ';
+var cripted;
+var crypt_index = true;
+var key_crypt = ' '
+var key_arr = [];
+var divv = {};
 
- //  x = prompt('Dimentions(1-3)');//
+
+function int_massiv_creator(){//array 2+ dimention generator (0)=0x dimention array have up nambers (!0)=0x ramdom
+  
+  var ix = 0, x = 10,y = 0,z = 0;//dimentions of array
+  var array = [];//new array to return it
+   /* x = prompt('Dimentions(1-3)');//
     if (x==3) //thid dimention on
         {   
             x = prompt('index First array dimention');
@@ -27,7 +31,7 @@ function int_massiv_creator(ix)//array 2+ dimention generator (0)=0x dimention a
    
 if (y>0) 
 {     
-    for (var i=0; i<x; i++)//random 2 dimention A generator nambers from 0 to 99 with leigth and heith 
+    for (var i=0; i<x; i++)//random 2 dimention A generator nambers from 0 to 99 with length and heith 
         {
             array[i]=[];
             for (var j=0; j<y; j++)
@@ -50,12 +54,12 @@ if (y>0)
         }
 }  
     else 
-    {
-        for (i = 0; i < x; i++)//random A generator nambers from 0 to 99 with leigth = A_leigth
+    {*/
+        for (i = 0; i < x; i++)//random A generator nambers from 0 to 99 with length = A_length
         {
             if (ix==0) //if need to upnambers in array flag
             {
-                array[i] = Math.floor(Math.random() * 100);//generate number
+                array[i] = Math.floor(Math.random() * 30);//generate number
                 if (array[i]< array[i-1])//if to small
                 {   z = Math.floor(Math.random() * 10)//up one char namber
                     array[i] = array[i-1] + z;
@@ -63,12 +67,12 @@ if (y>0)
             }
             else array[i] = Math.floor(Math.random() * 100);// 1 dimention array new number
          }
-    }
+    //}
+  //  }
 return array;
 }  
-
-function massiv_sum(array_1, array_2)//Ex.1 two arrays summ, work with first dimention of array's
-{
+ 
+function massiv_sum(array_1, array_2){//Ex.1 two arrays summ, work with first dimention of array's
     var array =[];
     array.length = (array_1.length+array_2.length); 
     var i1=0, i2=0;
@@ -108,126 +112,128 @@ function massiv_sum(array_1, array_2)//Ex.1 two arrays summ, work with first dim
             continue;          
         }
         
-
+ 
     }
     return array;
 }
-
-function code()
-{
-string= prompt('string'); 
-
-var sa=[];
-crypt_index = 0 ? 1:0;
-sa = keygen();
-console.log (sa);
-}
-
-function keygen()
-{
-    var key_arr=[], key = key_crypt.split('');
-    for (var i=0; i<key.length; i++)//перебираем буквы по очереди
+ 
+function crypt(str) {//Функция кодирует вводимый текст любой длинны а также дополняет ключевой массив новыми записями
+    var ind_2 = key_arr[key_arr.length-1].length;//переменная для выбора последнего индекса последнего массива в массиве кодирования
+    var code_ind = key_arr[key_arr.length-1][ind_2-1] + 1;//индекс нового символа следующий за последним индексом в существующем массиве
+    var string = str.split('');//бъем кодируемое слово на массив символов
+    for (i = 0; i < string.length; i++)// берем по очереди символы из массива кодируемого слова
     {
-        key_arr[i]=[];
-        if (i<0)// если не первая
+        for (j = 0; j < key_arr.length; j++) //перебираем ключ в поисках нужного символа
+        {
+            if (string[i] == key_arr[j][0]) //символ найден
             {
-            if (key_arr.indexOf(key[i] == -1))// нет еще в таблице
-               {
-                if (key.indexOf(key_arr[i][0]) != key_crypt.lastIndexOf(key_arr[i][0]))//Вхождение  не одно
+                if (key_arr[j][1] > 1) //проверяем вхождений больше 1
+                {
+                    if (key_arr[j][2] == 0)//если символ проверяеться впервые
                     {
-                        var x=1;
-                        for (var j=0; j<key_arr.length; j++)//ищем все вхождения и создаём таблицу
-                         {
-                            if (key_arr[i][0]==key[j])//если есть задаём вхождения +1 b id вхождения в след ячейку
-                            {  
-                                key_arr[i][1] += x;
-                                key_arr[i][2]=0;
-                                key_arr[i][(key_arr[i][x+2])] = j;
-                            }
-                             else
-                             {
-                                 continue;
-                             }
-                       
+                        key_arr[j][2] = 1; //пишем в масив что брали 1 
+                        string[i] = key_arr[j][3]; //добавляем индекс первого вхождения
+                        break;
+                    }
+                    else //если проверка не первая
+                    {
+                        if (key_arr[j][1] > key_arr[j][2]) //количество проверок меньше количества индексов 
+                        {
+                            key_arr[j][2]++;//увеличиваем индекс использования символа;
+                            string[i] = key_arr[j][(key_arr[j][2] + 2)]; //берем следующий индекс
+                            break;
+                        }
+                        else //количество проверок равно количеству индексов так как больше быть не может
+                        {
+                            key_arr[j][2] = 1;//делаем снова 1 использование
+                            string[i] = key_arr[j][3];// пишем первый индеск
+                            break;
                         }
                     }
-                else //вхождение одно
+                }
+                else //входжение одно
                     {
-                        
-                          key_arr[i][1]=1;
-                          key_arr[i][2]=0;
-                          key_arr[i][3]=i;
-                          key_arr[i][0]=key[i];
+                        string[i] = key_arr[j][3];
+                        break;
                     }
-                }
-        else continue; //есть в таблице пропускаем
-        }
-        else//если первая
-        {   
-             key_arr=[i][i]=key[i];
-             key_arr[i][++i]=1;
-             key_arr[i][++i]=0;
-        }
-    }
-        return key_arr;
-}
-
-
-
-
-/*string= prompt('string'); 
-key= key_crypt;
-var sa=[];
-crypt_index = 0 ? 1:0;
-
-
-for (var i=0;i<string.length;i++)//номер симвода в сообщении
-{
-    for (var j=0; j<key.length; j++)//перебираем ключ 
-    { 
-        if (string.charAt(i)==key.charAt(j))//нашёл вхождение
-        {
-            sa[i]=key.charAt(j);// отлично запишем id в массив шифровку и прерваем цикл
-
-            if(key.indexOf(sa[i]) == key.lastIndexOf(sa[i]))//вхождение единственное?.
-            {
-                break; //прерываемся
             }
-
-            else// вхождение не единственное;
-                // проводилась ли индексация вхождений
-                for (var id = 0; id<key.length; id++)//индексируем входжения в массив 0 строка - символ, 2 строка - колво-вхождений, 3 текущее вхождение в формате[3+номер] 3+ вхождени;
-                   {
-                    if (sa[i]=)
-                } // выясняем сколько кхождений и их id
+            else //вхождение в ключе не найдено
             {
-                for (var x=key.indexOf(sa[i]); x<key.length; x++)//ищу следующее вхождение символа в ключе
+                if (key_arr.length == (j+1))//проверяем все ли ключи проверены
                 {
-                    if (key.indexOf(sa[x]) == key.lastIndexOf(sa[i])
+                   key_arr.push([string[i], 1, 0, code_ind])//если всепроверили то новая запись с недостающим символом индекс создаём следующий от последнего
+                   string[i] = code_ind; 
+                   code_ind++;
+                   break;
                 }
- 
-        }
-        else
-        {
-
+                else continue;//не все ключи проверены
+            }
         }
     }
+    return string;
 }
-return;
-}*/
+ 
+function decrypt(arr){// функция декодирувет зашифрованный масив обратно в строку
+  for (var i=0; i < arr.length; i++)
+   {
+     for ( var j=0; j < key_arr.length; j++)
+      {
+        for (var x=0; x < key_arr[j][1]; x++)
+          {
+            if (arr[i] == key_arr[j][x+3])
+              {
+                 arr[i] = key_arr[j][0];
+              }
+             else continue;
+          }
+      }
+   }
+return arr.join('');
+}
+ 
+function keygen(){//функция создания криптографигеского ключа работает только если ключ еще не создан
+    if (key_arr.length > 0) return;//новый ключ не генерируем если длинна больше 0 тоесть уже существует
+    var correct = [];
+    var key = key_crypt.split('');
+    for (var i=0; i<key.length; i++)//перебираем буквы по очереди
+    {   
+        if (correct.indexOf(key[i]) == -1 )// символа нет в массиве 
+        {    
+            correct.push(key[i]);
+            key_arr.push([key[i],1,0,i]);
+            if (key_crypt.indexOf(key[i]) != key_crypt.lastIndexOf(key[i]))//Вхождение не одно
+            {
+                var x = (key_arr.length-1);
+                for (var j=(i+1); j<key.length; j++)//ищем все вхождения c последнего добавления и создаём таблицу
+                {
+                    if (key_arr[x][0]==key[j])//если есть задаём вхождения +1 в id вхождения в след ячейку
+                    {
+                        key_arr[x].push(j);
+                        key_arr[x][1]++;
+                    }
+                    else continue;                       
+                }
+            }
+            else continue;
+        }
+        else continue; //есть в таблице пропускаем
+    }
+return;  
+}
 
-function a_plus()//cirkle functoin a+
-{
-    function plus_one()// Sub Function add +a our string
-    {
-        a = (a + '+a');
+function a_plus(){//cirkle functoin a+
+     divv = document.body.children[7];
+    function plus_one(){// Sub Function add +a our string
+        divv.innerText  += ' + a ';//update text string
+        a += '+ a '
         console.log(a);
-        return;
+    return;
     }
     if (a_ind)//first run marker
     {   
-        console.log(a);
         a_ind=false;//change marker
+        divv.innerText = a;
+        console.log(a);
     }
     else
     {
@@ -235,37 +241,70 @@ function a_plus()//cirkle functoin a+
     }
 return;
 }
-
-
-
+ 
+ 
+ 
 function one(f) 
 {
+divv = document.body.children[1];
 arr1 = int_massiv_creator(f);
-console.log(arr1);
+console.log(divv);
+divv.innerText += arr1 ;
 arr2 = int_massiv_creator(f);
-console.log(arr2);
+divv = document.body.children[2];
+console.log(divv);
+divv.innerText += arr2 ;
 return;
-}
 
+}
+ 
 function two()
 {
+divv = document.body.children[4];
 arr3 = massiv_sum(arr1,arr2);
-console.log(arr3);
+divv.innerText += arr3;
+console.log(divv);
 return;
 }
-
+ 
 function tre()
 {
 a_plus();
 return;
 }
-
+ 
 function foor()
-{
-keygen();
+{ 
+    if (document.body.children[9].children[0].value) key_crypt = document.body.children[9].children[0].value;
+    var string_to_cript = document.body.children[10].children[0].value;
+    if (crypt_index)
+    {      
+        if (string_to_cript != '')
+        {
+            divv = document.body.children[8]
+            keygen();
+            crypt_index= false;
+           //divv.innerText = 'Decript';
+            divv = document.body.children[11];
+            cripted = crypt(string_to_cript); 
+            divv.innerText = 'Шифровка - ' + cripted;
+        }
+        else {
+            alert ('Слово для шифрования обязательно!');
+            return;
+        }
+    }
+    else
+    {   
+        divv = document.body.children[12]
+        crypt_index=true;
+        string_to_cript = decrypt(cripted);
+        divv.innerText  = ' Дешефровка - ' + string_to_cript;
+        key_arr = [];        
+    }
 return;
 }
-
-
-
+//var divv =  document.body.children[4];
+//console.log(divv);
+//divv.children[0].innerText = "Пиписька друг человека";
 
