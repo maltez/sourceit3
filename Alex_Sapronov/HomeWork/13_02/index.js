@@ -4,7 +4,7 @@ var a = 'a ';
 var cripted;
 var crypt_index = true;
 var key_crypt = ' '
-var key_arr = [];
+var key_arr = [], key = [];
 var divv = {};
 
 
@@ -117,9 +117,8 @@ function massiv_sum(array_1, array_2){//Ex.1 two arrays summ, work with first di
     return array;
 }
  
-function crypt(str) {//Функция кодирует вводимый текст любой длинны а также дополняет ключевой массив новыми записями
-    var ind_2 = key_arr[key_arr.length-1].length;//переменная для выбора последнего индекса последнего массива в массиве кодирования
-    var code_ind = key_arr[key_arr.length-1][ind_2-1] + 1;//индекс нового символа следующий за последним индексом в существующем массиве
+function crypt(str) {//Функция кодирует вводимый текст любой длинны а также дополняет ключевой массив новыми записями если в ключе не наудены соответствия
+    var code_ind = key.length; //индекс нового символа следующий за последним индексом в существующем массиве
     var string = str.split('');//бъем кодируемое слово на массив символов
     for (i = 0; i < string.length; i++)// берем по очереди символы из массива кодируемого слова
     {
@@ -191,15 +190,15 @@ function decrypt(arr){// функция декодирувет зашифров�
 return arr.join('');
 }
  
-function keygen(){//функция создания криптографигеского ключа работает только если ключ еще не создан
-    if (key_arr.length > 0) return;//новый ключ не генерируем если длинна больше 0 тоесть уже существует
-    var correct = [];
-    var key = key_crypt.split('');
+function keygen(){//функция создания криптографигеского ключ
+    var id_count = [];
+    key_arr= [];
+    key = key_crypt.split('');
     for (var i=0; i<key.length; i++)//перебираем буквы по очереди
     {   
-        if (correct.indexOf(key[i]) == -1 )// символа нет в массиве 
-        {    
-            correct.push(key[i]);
+        if (id_count.indexOf(key[i]) == -1 )// символа нет в массиве 
+        {   
+            id_count.push(key[i]);
             key_arr.push([key[i],1,0,i]);
             if (key_crypt.indexOf(key[i]) != key_crypt.lastIndexOf(key[i]))//Вхождение не одно
             {
@@ -249,11 +248,11 @@ function one(f)
 divv = document.body.children[1];
 arr1 = int_massiv_creator(f);
 console.log(divv);
-divv.innerText += arr1 ;
+divv.innerText = 'Первый массив : '+  arr1 ;
 arr2 = int_massiv_creator(f);
 divv = document.body.children[2];
 console.log(divv);
-divv.innerText += arr2 ;
+divv.innerText = 'Второй массив : '+  arr2 ;
 return;
 
 }
@@ -262,7 +261,7 @@ function two()
 {
 divv = document.body.children[4];
 arr3 = massiv_sum(arr1,arr2);
-divv.innerText += arr3;
+divv.innerText = 'Сумма 1 и 2 массивов : '+ arr3;
 console.log(divv);
 return;
 }
@@ -280,7 +279,7 @@ function foor()
     if (crypt_index)
     {      
         if (string_to_cript != '')
-        {
+        { 
             divv = document.body.children[8]
             keygen();
             crypt_index= false;
@@ -299,8 +298,7 @@ function foor()
         divv = document.body.children[12]
         crypt_index=true;
         string_to_cript = decrypt(cripted);
-        divv.innerText  = ' Дешефровка - ' + string_to_cript;
-        key_arr = [];        
+        divv.innerText  = ' Дешефровка - ' + string_to_cript;     
     }
 return;
 }
