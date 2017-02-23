@@ -1,11 +1,11 @@
-﻿var arr1=[], arr2=[], arr3=[];
-var a_ind = true;
-var a = 'a ';
-var cripted;
-var crypt_index = true;
-var key_crypt = ' '
-var key_arr = [], key = [];
-var divv = {};
+﻿var arr1=[], arr2=[], arr3=[];//arrays 
+var a_ind = true;//lebel to a+ function
+var a = 'a '; // start string to a+ function
+var cripted;//crypted array;
+var crypt_index = true;//to select crypt or decrypt one one button
+var key_crypt = ' '//keyword to crypt
+var key_arr = [], key = [];//key in array and keyword array
+var divv = {};//objekt to write on the page
 
 
 function int_massiv_creator(){//array 2+ dimention generator (0)=0x dimention array have up nambers (!0)=0x ramdom
@@ -76,7 +76,7 @@ function massiv_sum(array_1, array_2){//Ex.1 two arrays summ, work with first di
     var array =[];
     array.length = (array_1.length+array_2.length); 
     var i1=0, i2=0;
-    for (var i=0; i<array.length; i++)
+    for (var i=0; i<array.length; i++)//loking for smaler namber and push it first
     {
         if (array_1[i1]==array_2[i2])
         {
@@ -111,75 +111,73 @@ function massiv_sum(array_1, array_2){//Ex.1 two arrays summ, work with first di
             i2++; 
             continue;          
         }
-        
- 
     }
     return array;
 }
  
-function crypt(str) {//Функция кодирует вводимый текст любой длинны а также дополняет ключевой массив новыми записями если в ключе не наудены соответствия
-    var code_ind = key.length; //индекс нового символа следующий за последним индексом в существующем массиве
-    var string = str.split('');//бъем кодируемое слово на массив символов
-    for (i = 0; i < string.length; i++)// берем по очереди символы из массива кодируемого слова
+function crypt(str) {//Function encodes the input text of any length and adds an array of key new records if the key is not matching Naude
+    var code_ind = key.length; //Index of the new character following the last index in an existing array
+    var string = str.split('');//Divide the encoded word to an array of characters
+    for (i = 0; i < string.length; i++)// take turns symbols from the encoded word
     {
-        for (j = 0; j < key_arr.length; j++) //перебираем ключ в поисках нужного символа
+        for (j = 0; j < key_arr.length; j++) //iterate the key to find the right character
         {
-            if (string[i] == key_arr[j][0]) //символ найден
+            if (string[i] == key_arr[j][0]) //char finded
             {
-                if (key_arr[j][1] > 1) //проверяем вхождений больше 1
+                if (key_arr[j][1] > 1) //how mach time char have in key
                 {
-                    if (key_arr[j][2] == 0)//если символ проверяеться впервые
+                    if (key_arr[j][2] == 0)//if first inspection
                     {
-                        key_arr[j][2] = 1; //пишем в масив что брали 1 
-                        string[i] = key_arr[j][3]; //добавляем индекс первого вхождения
+                        key_arr[j][2] = 1; //write to array wtat we take char onse 
+                        string[i] = key_arr[j][3]; //take first inddex to coded string
                         break;
                     }
-                    else //если проверка не первая
+                    else //if second inspection
                     {
-                        if (key_arr[j][1] > key_arr[j][2]) //количество проверок меньше количества индексов 
+                        if (key_arr[j][1] > key_arr[j][2]) //taked > all indexes
                         {
-                            key_arr[j][2]++;//увеличиваем индекс использования символа;
-                            string[i] = key_arr[j][(key_arr[j][2] + 2)]; //берем следующий индекс
+                            key_arr[j][2]++;//taked ++;
+                            string[i] = key_arr[j][(key_arr[j][2] + 2)]; //take next index
                             break;
                         }
-                        else //количество проверок равно количеству индексов так как больше быть не может
+                        else //take == all indexes
                         {
-                            key_arr[j][2] = 1;//делаем снова 1 использование
-                            string[i] = key_arr[j][3];// пишем первый индеск
+                            key_arr[j][2] = 1;//taken = 1
+                            string[i] = key_arr[j][3];// write first index
                             break;
                         }
                     }
                 }
-                else //входжение одно
+                else //char in key onetime
                     {
-                        string[i] = key_arr[j][3];
+                        string[i] = key_arr[j][3];//string take only one index
                         break;
                     }
             }
-            else //вхождение в ключе не найдено
+            else //there is no match in the key, create a match
             {
-                if (key_arr.length == (j+1))//проверяем все ли ключи проверены
+                if (key_arr.length == (j+1))//if all char cheked
                 {
-                   key_arr.push([string[i], 1, 0, code_ind])//если всепроверили то новая запись с недостающим символом индекс создаём следующий от последнего
-                   string[i] = code_ind; 
-                   code_ind++;
+                   key_arr.push([string[i], 1, 0, code_ind])//new char add in key array
+                   string[i] = code_ind; //new index in coded strind
+                   code_ind++;//code index ++
                    break;
                 }
-                else continue;//не все ключи проверены
+                else continue;//not all cheked
             }
         }
     }
     return string;
 }
  
-function decrypt(arr){// функция декодирувет зашифрованный масив обратно в строку
-  for (var i=0; i < arr.length; i++)
+function decrypt(arr){//decrypts the encrypted string in an array
+  for (var i=0; i < arr.length; i++)//chek all numbers in array
    {
-     for ( var j=0; j < key_arr.length; j++)
+     for ( var j=0; j < key_arr.length; j++)//chek string in key array
       {
-        for (var x=0; x < key_arr[j][1]; x++)
+        for (var x=0; x < key_arr[j][1]; x++)//chek all id's in key array
           {
-            if (arr[i] == key_arr[j][x+3])
+            if (arr[i] == key_arr[j][x+3])//if matched then take char
               {
                  arr[i] = key_arr[j][0];
               }
@@ -187,25 +185,26 @@ function decrypt(arr){// функция декодирувет зашифров�
           }
       }
    }
-return arr.join('');
+return arr.join(''); //join aaray to a string
 }
  
-function keygen(){//функция создания криптографигеского ключ
-    var id_count = [];
-    key_arr= [];
-    key = key_crypt.split('');
-    for (var i=0; i<key.length; i++)//перебираем буквы по очереди
+function keygen(){//Creating a cryptographic key to encrypt and decrypt
+    var id_count = [];//take 2 way string
+    divv= document.body.children[13];
+    key_arr= [];//zero out
+    key = key_crypt.split('');//split key word to array
+    for (var i=0; i<key.length; i++)//iterate over the characters in succession
     {   
-        if (id_count.indexOf(key[i]) == -1 )// символа нет в массиве 
+        if (id_count.indexOf(key[i]) == -1 )//no in array 
         {   
-            id_count.push(key[i]);
-            key_arr.push([key[i],1,0,i]);
-            if (key_crypt.indexOf(key[i]) != key_crypt.lastIndexOf(key[i]))//Вхождение не одно
+            id_count.push(key[i]);//nake new char in 2 way array
+            key_arr.push([key[i],1,0,i]);//nake new char fieldin key array
+            if (key_crypt.indexOf(key[i]) != key_crypt.lastIndexOf(key[i]))//the character repeated in keyword 
             {
                 var x = (key_arr.length-1);
-                for (var j=(i+1); j<key.length; j++)//ищем все вхождения c последнего добавления и создаём таблицу
+                for (var j=(i+1); j<key.length; j++)//take all id's of character
                 {
-                    if (key_arr[x][0]==key[j])//если есть задаём вхождения +1 в id вхождения в след ячейку
+                    if (key_arr[x][0]==key[j])//and + one id and + 1 entening in character field if findind new index
                     {
                         key_arr[x].push(j);
                         key_arr[x][1]++;
@@ -215,8 +214,9 @@ function keygen(){//функция создания криптографигес
             }
             else continue;
         }
-        else continue; //есть в таблице пропускаем
+        else continue; //have in array
     }
+divv.innerText ='Кодовый массив' + key_arr;//write to page the array
 return;  
 }
 
@@ -302,7 +302,4 @@ function foor()
     }
 return;
 }
-//var divv =  document.body.children[4];
-//console.log(divv);
-//divv.children[0].innerText = "Пиписька друг человека";
 
