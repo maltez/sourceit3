@@ -52,21 +52,21 @@ console.log(newArr(arr, Sort));
 }
 /*Declaration function for find degree of number*/
 function NumberDegree(){
-	var number = +(prompt('enter the number'));
+var number = +(prompt('enter the number'));
 		var degree = +(prompt('enter degree'));
-		var arr = [];  // create array of numbers
-		for(var i = 0; i<degree; i++){
-			arr.push(number);
-		}
-
 
 function getDegree(mult,current){   // multiply each element of the array
 
 return mult*current
 }
+var result = function(degree,number, func){ 
+	var arr = [];  // create array of numbers
+		for(var i = 0; i<degree; i++){
+			arr.push(number);
+		}
 
-var result = function(arr, func){  
 	return arr.reduce(func);         //get degree of number
 }
-console.log(result(arr,getDegree));
+
+console.log(result(degree,number,getDegree));
 }
