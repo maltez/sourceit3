@@ -39,3 +39,16 @@ function symbols_delete(mask){//Task 2 remove symbols from string take mask arra
     return;
 }
 
+function take_only_polindrom(){//Task 3, chek user text for polindrom words
+var inner_text = document.body.children[7].children[0].value, string_out =[];
+var str = inner_text.split(' ');//split user text to array with words
+for (var i=0; i<str.length; i++){
+    if ( polindrom(str[i]) ){//chek word and return boolean 
+        string_out.push(str[i]);//if word is polindrom copy to new array
+    }
+    else continue;//next word
+}
+str = document.body.children[9];
+str.innerText = 'Polyndroms = ' + string_out;
+return string_out;
+}
