@@ -77,20 +77,20 @@ function select_words(string_arr,x,y){//Task 4 select only string with x<=length
     return string_out;
 }
 
-function arifmetic(x,involution,y){
+function arifmetic(x,involution,y){//Task 5 take 2 arguments and function and run function with taken arguments
     var z=document.body.children[17];
-    if (typeof involution !== 'function'){
+    if (typeof involution !== 'function'){//chek function
        console.log('Non a function');
         return;
     }
-     if (isNaN(x)){
-        console.log('First argument is not a namber');
+     if (isNaN(x)){//check first argument is number
+        console.log('First argument is not a number');
         return;
     }
-    if (isNaN(y)){
-        console.log('Second argument is not a namber');
+    if (isNaN(y)){//check Second argument is number
+        console.log('Second argument is not a number');
         return;
     }
-    z.innerText = 'Result = '+ involution(x,y); 
-    return involution(x,y);
+    z.innerText = 'Result = '+ involution(x,y); //write result on web page
+    return involution(x,y);//return result of taken function with taken arguments
 }
