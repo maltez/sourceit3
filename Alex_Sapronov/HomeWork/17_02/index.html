@@ -8,14 +8,47 @@
 <body>
 		<button onclick="array_generator()">Geberate Array</button>
 		<p>Array = </p>
-		<button onclick="plus_one(array)"> Array +1</button>
+		<button onclick="plus_one(array)">Array +1</button>
 		<p>Array = </p>
-		<p>Write text here: <input> </p>
-		<button onclick="symbols_delete(vowel_symbols)"> Delete vowel</button>
+		<p>Type text to remove vowel char here: <input value="Text to test s function"> </p>
+		<button onclick="symbols_delete(document.body.children[4].children[0].value,vowel_symbols)">Delete vowel</button>
 		<p>Text = </p>
-		<p>Write text to for check polindrom words: <input> </p>
-		<button onclick="take_only_polindrom()"> Delete nonPolyndrom words</button>
+		<p>Type text of several words: <input value="Polindrom test afa arara amma"> </p>
+		<button onclick="take_only_polindrom(document.body.children[7].children[0].value)">Delete nonPolyndrom words</button>
 		<p>Polyndroms = </p>
+		<p>word length from - 
+			<select>
+   			 	<option value=1>1</option>
+    			<option selected value=2>2</option>
+    			<option value=3>3</option>
+    			<option value=4>4</option>
+				<option value=5>5</option>
+    			<option value=6>6</option>
+    			<option value=7>7</option>
+    			<option value=8>8</option>
+				<option value=9>9</option>
+    			<option value=10>10</option>
+			</select> 
+			to - 
+			<select>
+				<option value=1>1</option>
+    			<option value=2>2</option>
+    			<option value=3>3</option>
+    			<option selected value=4>4</option>
+				<option value=5>5</option>
+    			<option value=6>6</option>
+    			<option value=7>7</option>
+    			<option value=8>8</option>
+				<option value=9>9</option>
+    			<option value=10>10</option>
+			</select> </p>
+		<button onclick="select_words(document.body.children[7].children[0].value, document.body.children[10].children[0].value, document.body.children[10].children[1].value )">Delete string with user leigth</button>
+		<p>Words = </p>
+		<p>First number = <input style ="width: 40px;" value='2'></p>
+		<p>Second number = <input style ="width: 40px;" value='4'></p>
+		<p>Function - <input value="function(x,y){return Math.pow(x, y);}"></p>
+		<button onclick="arifmetic(document.body.children[13].children[0].value, document.body.children[15].children[0].value, document.body.children[14].children[0].value)">Go</button>
+		<p>Result = </p>
 </body>
 <script src="./index.js"></script>
 <script src="./function_add.js"></script>

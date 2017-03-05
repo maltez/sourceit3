@@ -3,5 +3,20 @@ button
 {
 border-bottom-style: solid;
 border: 2;
-font-size: 14px;
+font-size: 16px;
+}
+select
+{ 
+    text-shadow: 1px 1px 2px black, 0 0 1em darkgray; 
+    color: darkblue;
+    font-size: 20px; 
+    padding: 5px;
+    
+}
+input
+{
+    font-style: italic;
+    font-size: 18px;
+    width: 300px;
+    height: 40px;
 }

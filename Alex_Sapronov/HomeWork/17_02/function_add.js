@@ -3,14 +3,14 @@ function array_generator(){//generate 10 indexes rumdom number arra with Randoml
   array = [];//new array to return it
         for (i = 0; i < x; i++)//random A generator nambers from 0 to 99 with
         {
-           array[i] = Math.floor(Math.random() * 30);//generate number
-        if (array[i]%11==0){ //to random generate NaN value
+           array[i] = Math.floor(Math.random() * 100);//generate number
+        if (array[i]%17==0){ //to random generate NaN value
             array[i] = 'e' / 3;
         }   
-        if (array[i]%9==0){  //to random generate Undefined value
+        if (array[i]%19==0){  //to random generate Undefined value
             delete array[i];
          }
-        if (array[i]%12==0){  //to random generate string value
+        if (array[i]%21==0){  //to random generate string value
             array[i] = 'any_text';
          }
     }
@@ -48,7 +48,7 @@ function polindrom(string){
                 return false;
             }     
         }
-        return true; //i check all text and return true
+        return true; //check all text and return true
     }
     else {
         console.log('String to small')
