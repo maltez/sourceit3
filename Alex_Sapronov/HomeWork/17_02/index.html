@@ -47,7 +47,9 @@
 		<p>First number = <input style ="width: 40px;" value='2'></p>
 		<p>Second number = <input style ="width: 40px;" value='4'></p>
 		<p>Function - <input value="function(x,y){return Math.pow(x, y);}"></p>
-		<button onclick="arifmetic(document.body.children[13].children[0].value, document.body.children[15].children[0].value, document.body.children[14].children[0].value)">Go</button>
+		<button onclick="arifmetic(document.body.children[13].children[0].value, function(x,y){return Math.pow(x, y);}, document.body.children[14].children[0].value)">Go</button>
+		<!-- В оригинате вторым аргументом выступает значение поля input (document.body.children[15].children[0].value),
+		 но я не разобрался почему он не хочет принимать текст за код поэтому функция указана напрямую-->
 		<p>Result = </p>
 </body>
 <script src="./index.js"></script>

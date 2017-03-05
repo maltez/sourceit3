@@ -79,10 +79,10 @@ function select_words(string_arr,x,y){//Task 4 select only string with x<=length
 
 function arifmetic(x,involution,y){
     var z=document.body.children[17];
-    //if (typeof involution !== 'function'){
-    //    console.log('Non a function');
-    //    return;
-    //}
+    if (typeof involution !== 'function'){
+       console.log('Non a function');
+        return;
+    }
      if (isNaN(x)){
         console.log('First argument is not a namber');
         return;
