@@ -109,7 +109,7 @@ catch(err)//
     console.log('be a')
 }
 console.log ('happy')
-*/
+
 
 var a = [1,3,4,3,7,3];
 
@@ -120,10 +120,9 @@ var z = function (arr){
             if (typeof elt !== 'number'){
                 throw new Error('new')
             }
-                c.push(elt+2);
-            });
-    return c;
-    }
+             c.push(elt+2);
+             return c;
+             })
 console.log(z(a));
 var l = function (arr){
 return a.map(
@@ -169,3 +168,74 @@ function del_space(ar){
    });
 }
 console.log (del_space(ar));
+var arr_out = [];
+var str_1=[true,'test',1 , 'str', false], str_2=[true,'test',1 , 'str', false];
+function separete(arr,x){
+    for(var i=0; i<arr.length; i++){
+        if (typeof(arr[i]) == typeof(x)){
+        arr_out.push(arr[i]);
+        }
+    }
+    return;
+}
+function plus(arr1,arr2){
+separete(arr1,true);
+separete(arr1,'str');
+separete(arr1,1);
+arr1=arr_out;
+separete(arr2,true);
+separete(arr2,'str');
+separete(arr2,1);
+arr2=arr_out;
+arr_out = [];
+arr_out=arr1;
+for (var i=0; i<arr2.length; i++){
+arr_out.push(arr2[i])
+}
+return arr_out;
+}
+console.log(plus(str_1, str_2));*/
+function slog(str, char){//возвращает сколько вхождений в тексте
+  var regexp = /char/;
+  var z= document.body.children[0];
+  z.inntenText = "Result" + str.match(regexp);
+ return ;
+}
+
+console.log(slog('мама мыла раму','ма'));
+
+//var str = 'я люблю свою люлю';
+///alert (str.search(/ЛЮ/));//позиция первого схождения
+//alert (str.search(/ЛЮ/i));игнор регистра /g сколько угоднго совпадений
+
+var str = '+3sko4i5i5p2w';
+var reg = /\s/;//пробелы
+var reg = /\d/;//любая цифра
+var reg = /\w/;//любое слово
+//alert (str.match(reg));//первый символ
+reg = /\d/g;//
+//alert (str.match(reg).length);// количество цифр в тексте
+str = '2323 3444 556 56765 235 245 34435 3454 334';
+///alert (str.match(reg).length);
+reg = /\d{4}/g;
+function space(str,reg){
+    var r = reg;//ищет цифры длинной 4 символа
+    return str.match(r).length;
+}
+alert (space(str,reg));
+str = 'Миру мир и мир за миром и За Мирам есть мирок МИРРР';//ищем мир в тексте и возвращаем количество схождений
+reg = /мир/gi;
+function space2(str,reg){
+    var r = reg;//ищет цифры длинной 4 символа
+    return str.match(r).length;
+}
+alert (space2(str, reg));
+
+str = 'Мой возраст 344 года'
+function age(str){
+    var r = /\d[0-9]{1,3}/g//ищет цифры и выводит возраст
+    return str.match(r);
+}
+alert (age(str));
+//str.match (/(go)+/i) найдёт gogogo и вернёт его как gogogo
+// reg = /<.*?>/g; //найдёт любой символ сколько угодно символов т конец строки начало строки ^ конец строки $
