@@ -60,8 +60,13 @@ function summa(str) {//Task 4 summ of all digits in the string
 
 function Number_16to10(str) {//Task 5 chek string to 16x namber and convert to 10x
 var result;
-var re =/(a-f 0-9)+/i ;
-ts_result = parseInt(str.match(re), 16);
-tts_result.innerText = result;
-return result;
+var re =/[a-f0-9]+/i ;
+result = parseInt(str.match(re), 16);
+if (result){
+tts_result.innerText = 'Result = '+ result;
+return result;}
+else{ 
+    tts_result.innerText = 'do Not find Hex namber';
+    return ;
+    }
 }

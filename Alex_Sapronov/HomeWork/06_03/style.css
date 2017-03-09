@@ -1,4 +1,7 @@
-﻿
+﻿html{
+    height: 700px;
+    width: 380px;
+}
 button 
 {
 border-bottom-style: solid;
