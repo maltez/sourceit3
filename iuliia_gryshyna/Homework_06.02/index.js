@@ -1,3 +1,4 @@
+
 //function for average sum of five numbers
 var num,A,sum,i;
 i=0;
@@ -46,4 +47,27 @@ if (y<1){
     alert('Number ' + y + ' is wrong');
 } else {
     alert(getString()); //if entering number is in range call function
+}
+
+
+//function for display prime number
+
+function primenum(){
+    var num=+prompt('Enter a number');
+    if(num<3){
+        console.log('Not a prime number');
+    } else {
+        checkPrimenum();
+    }
+
+    function checkPrimenum() {
+        for (var a=2;a<num;a++) {
+            for (var b=2;b<a;b++) {
+                if (a%b == 0) break;
+                }
+            if (b == a){
+                console.log(a);
+            }
+        }
+    }    
 }
