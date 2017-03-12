@@ -1,0 +1,36 @@
+body{
+	margin: 0;
+	padding: 0;
+	background: green;
+	width: 100%;
+}
+.image{
+	width: 277px;
+	margin: 50px auto;	
+}
+h1{
+	text-align: center;
+}
+span{
+	font-size: 20px;
+}
+
+input[type = "text"]{
+	width: 30px;
+	height: 30px;
+	background: green;
+	font-size: 16px;
+	margin-left: 5px;
+	text-align: center;
+}
+input[type = "button"]{
+	
+	height: 30px;
+	background: darkgreen;
+	font-size: 16px;
+	margin-left:20px;
+	text-align: center;
+}
+.image div{
+	margin-top: 50px;
+}
