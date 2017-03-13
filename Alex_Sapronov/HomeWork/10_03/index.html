@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="tank_parameters" id="tank_parameters">
-	<div class="tank_img"> <p id="Create"></p> </div>
+	<div class="tank_img" id = "tank_img"> <p id="Create"></p> </div>
 	<div class="tank_helth" id=>
 		<p id="Helth" id="Helth"></p>
 		<p id="Armor" id="Armor"></p>
@@ -21,11 +21,11 @@
 <br>
 <button id="create_tank" name="create_tank" onclick="t_34 = new Tank(10,10,'T-34')">Create Tank</button>
 
-<button id="create_tank" name="create_tank" onclick="t_34.fire()">Fire</button>
+<button id="button_fire" name="button_fire" onclick="t_34.fire()">Fire</button>
 
-<button id="create_tank" name="create_tank" onclick="t_34.moove()">GO!</button>
+<button id="button_go" name="button_go" onclick="t_34.moove()">GO!</button>
 
-<button id="create_tank" name="create_tank" onclick="rearm(10,5,t_34)">Reamr</button>
+<button id="button_reamm" name="button_reamm" onclick="rearm(10,5,t_34)">Reamr</button>
 
 <script src="./index.js"></script>
 </body>

@@ -6,6 +6,14 @@ var distans_ind = document.getElementById('Distans');
 var tank_create = document.getElementById('Create');
 var button_create = document.getElementById('create_tank');
 var fire_ind = document.getElementById('Fire')//links to texp out to web page
+var tank_img = document.getElementById('tank_img');
+var button_go = document.getElementById('button_go');
+var button_fire = document.getElementById('button_fire');
+var button_reamm = document.getElementById('button_reamm');
+button_go.hidden = true;
+button_fire.hidden = true;
+button_reamm.hidden = true;
+tank_img.hidden = true;
 
 function Tank(fuel,ammunition,name){//tank generator
     if (!isNaN(fuel)&&fuel>0) this.fuel = fuel;//chek fuel number
@@ -37,6 +45,7 @@ function Tank(fuel,ammunition,name){//tank generator
             this.ammunition--;
             fire_count++;
             console.log('Boom!!');
+            tank_img.backgroundImage ='img/tank_fr.png';
         }
         else {
             console.log('Click-click, yopta!!');
@@ -46,7 +55,7 @@ function Tank(fuel,ammunition,name){//tank generator
         return this.ammunition;
     }
     console.log('Tank created');
-    
+
     helth_ind.innerText = 'Heath - 100';
     armor_ind.innerText = 'Armor - 100%';
     shell_ind.innerText = 'Shell - 10/20';
@@ -55,6 +64,10 @@ function Tank(fuel,ammunition,name){//tank generator
     fire_ind.innerText = 'You shoot - '+fire_count+' times';
     tank_create.innerText = this.name;
     button_create.hidden = true;
+    button_go.hidden = false;
+    button_fire.hidden = false;
+    button_reamm.hidden = false;
+    tank_img.hidden = false;
 }
 
 function rearm(fuel_add,amm_add,obj){//add fuel and shell to tank geted in obj
