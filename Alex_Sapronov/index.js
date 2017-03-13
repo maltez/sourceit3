@@ -194,7 +194,7 @@ arr_out.push(arr2[i])
 }
 return arr_out;
 }
-console.log(plus(str_1, str_2));*/
+console.log(plus(str_1, str_2));
 function slog(str, char){//возвращает сколько вхождений в тексте
   var regexp = /char/;
   var z= document.body.children[0];
@@ -239,3 +239,62 @@ function age(str){
 alert (age(str));
 //str.match (/(go)+/i) найдёт gogogo и вернёт его как gogogo
 // reg = /<.*?>/g; //найдёт любой символ сколько угодно символов т конец строки начало строки ^ конец строки $
+
+function Vehicle(){//функция конструктор
+    this.color = 'red';
+    var subcolor = 'green';
+    this.SetSubColor = function(color){
+        subcolor = color;
+    }
+    this.wheelCount = 4;
+    this.beep = function(){
+        console.log('Beep Beep!');
+    };
+    this.WhatColor = function(){
+        console.log(this.color);
+    };
+}
+var car = new Vehicle();// возвращает эеземпляр объекта по контруктору
+car.WhatColor();
+
+fanction animal 
+4 лапы
+жрать (еда)
+арр ; */
+/*
+function Animal(name, gender){//конструктор животного с входящим именем
+    var arr= 'myyyyrr';
+    this.name = name;
+    this.negs = 4;
+    this.eat = function(food){
+        console.log(gender + 'I am eat ' + food);
+    };
+  }
+var cat = new Animal('Barsik', 'Woman');
+cat.negs = 5;
+cat.eat('Meat');
+console.log(cat); 
+function Vehicle(FuelCPH){//конструктор животного с входящим именем
+    this.fuelCapacity = 0;
+    function stop(){
+        alert ('Car Stoped');
+    }
+    function getVehicleRange(){
+        return this.fuelCapacity / FuelCPH;
+    }
+    this.go = function(food){
+        setTimeout (stop, getVehicleRange.apply(this)));// будет поддерживаться актуальным берясь после присвоения ибо возьмёт 
+    };
+  }
+
+  var cab = new Vehicle(4);
+  cab.fuelCapacity = 4000;
+  cab.go();
+  */
+  var a = {x:1, y:2};
+  var b = {calc:function(i){return this.x + this.y + i}};
+  console.log( b.calc.apply(a,[1]));//можно call но туда передаёьъться не массив а попунктно
+
+  console.log( b.calc.bind(a)) // не выполняет а возвращает фенкцию
+  console.log( b.calc.bind(a)(1) ) // возвращает фенкцию и выполняет 
+  console.log( b.calc.bind(a,1) ) // нужно не менять переменную

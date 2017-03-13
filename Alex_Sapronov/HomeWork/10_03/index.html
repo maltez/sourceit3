@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Home Work 10.03.2017</title>
+</head>
+<body>
+<div class="tank_parameters" id="tank_parameters">
+	<div class="tank_img"> <p id="Create"></p> </div>
+	<div class="tank_helth" id=>
+		<p id="Helth" id="Helth"></p>
+		<p id="Armor" id="Armor"></p>
+		<p id="Shell" id="Shell"></p>
+		<p id="Fire" id="Fire"></p>
+		<p id="Fuel" id="Fuel"></p>
+		<p id="Distans" id="Distans"></p>
+
+	</div>
+</div>
+<br>
+<button id="create_tank" name="create_tank" onclick="t_34 = new Tank(10,10,'T-34')">Create Tank</button>
+
+<button id="create_tank" name="create_tank" onclick="t_34.fire()">Fire</button>
+
+<button id="create_tank" name="create_tank" onclick="t_34.moove()">GO!</button>
+
+<button id="create_tank" name="create_tank" onclick="rearm(10,5,t_34)">Reamr</button>
+
+<script src="./index.js"></script>
+</body>
+</html>
