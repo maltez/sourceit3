@@ -29,16 +29,12 @@ function Tank(fuel, cartridges) {
         this.crewmembers.push(crewmember);
     };
 
-function ModernizedTank(fuel, cartridges) {
-    // inheritance
-    Tank.call(this);
-    
-    this.fuel = fuel;
-    this.cartridges = cartridges;
-    this.crewmembers = []; // For the crew
+function ModernizedTank() {
+    // Functional-based inheritance of the constructor Tank
+    Tank.apply(this, arguments);
 }
 
-// inheritance
+// Prototype-based inheritance
 ModernizedTank.prototype = Object.create(Tank.prototype);
 ModernizedTank.prototype.constructor = ModernizedTank;
 
