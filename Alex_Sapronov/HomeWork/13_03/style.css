@@ -1,0 +1,35 @@
+﻿button 
+{
+border-bottom-style: solid;
+border: 4;
+font-size: 16px;
+}
+
+input
+{
+    font-style: italic;
+    font-size: 18px;
+    width: 130px;
+    height: 154px;
+}
+.tank_parameters
+{
+    display: inline-flex;
+    height: 240px;
+    width: 400px; 
+
+}
+.tank_img
+{
+    height: 180px;
+    width: 130px;
+    background-image: url('img/tank.png');
+    background-repeat:no-repeat;
+    background-position: center;
+    padding: 10;
+}
+.tank_helth
+{
+    height: 180px;
+    width: 250px;
+}

@@ -45,7 +45,7 @@ function Tank(fuel,ammunition,name){//tank generator
             this.ammunition--;
             fire_count++;
             console.log('Boom!!');
-            tank_img.backgroundImage ='img/tank_fr.png';
+            tank_img.innerHTML = '<img src='img/tank_fr.png'>';
         }
         else {
             console.log('Click-click, yopta!!');

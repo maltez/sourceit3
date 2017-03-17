@@ -290,11 +290,124 @@ function Vehicle(FuelCPH){//конструктор животного с вхо�
   var cab = new Vehicle(4);
   cab.fuelCapacity = 4000;
   cab.go();
-  */
+ 
   var a = {x:1, y:2};
   var b = {calc:function(i){return this.x + this.y + i}};
   console.log( b.calc.apply(a,[1]));//можно call но туда передаёьъться не массив а попунктно
 
   console.log( b.calc.bind(a)) // не выполняет а возвращает фенкцию
   console.log( b.calc.bind(a)(1) ) // возвращает фенкцию и выполняет 
-  console.log( b.calc.bind(a,1) ) // нужно не менять переменную
+  console.log( b.calc.bind(a,1) ) // нужно не менять переменную 
+
+var A = function(){
+      this.a =1;
+      this.b = 2;
+}
+
+var B = function(){
+A.call(this);//механизм наследования функции B всего из функции А
+    this.fu = function(){
+        return this.a+this.b
+    };
+}
+
+var z = new B();
+
+function Vehicle(FuelCPH){
+    this.fuelCapacity = 0;
+    var self=this;
+
+    function getVehicleRange(){
+        return self.fuelCapacity / FuelCPH;
+    }
+    function stop(){
+        alert('car Stop');
+    }
+
+    this.go = function (){
+        setTimeout(stop, getVehicleRange());// первое значение чтьо выполниться по завершению таймера второе сам таймер в тысячных секунды
+    };
+}
+function FordVehicle(){
+    this.isFord = true;
+    Vehicle.call(this,4);
+    this.go = function(){ alert ('newer stop');}//при добавлении этого переопределяеться функция go
+    this.fuelCapacity = 4000;
+}
+
+var fordT= new FordVehicle();
+fordT.go();
+console.log (fordT);
+
+
+function Calc_simple(){
+  this.s = true;
+}
+
+Calc_simple.prototype.add = function(a,b){
+        return a+b;
+    };
+Calc_simple.prototype.multiply = function(a,b){
+        return a*b;
+    };
+
+function Calc_ext(){
+    Calc_simple.call(this);
+    this.exponentiation = function (a,b){
+       var res=1;
+       for(var i=0; i<b; i++)  {    
+           res = this.multiply(res,a);
+        }
+          return res;
+        };
+    this.division = function(a,b){
+        return a/b;
+    };
+  
+}
+
+var calcul
+var calculator = new Calc_ext();
+
+console.log (calculator.add(3,4));
+console.log (calculator.multiply(3,4));
+console.log (calculator.exponentiation(3,4));
+console.log (calculator.division(3,4));
+
+var vehicle = { wheels: 4};
+var car = {engine:true};
+
+car._proto_ = vehicle //все свойства объекта vehicle добавяться к объекту car используеться для уже созданных объектов
+
+console.log(car);*/
+ //наследование через прототип
+ function Vehicle(){
+     this.wheels = 4;
+     this.speed = 0;
+ }
+
+Vehicle.prototype.go = function(speed){
+    this.speed += speed;
+    console.log('we go with '+this.speed + 'speed');
+}
+
+
+Vehicle.prototype.stop = function(){
+    this.speed = 0;
+    console.log('we Stoped');
+}
+
+function Car(){
+    Vehicle.apply(this);
+    this.engine = true;
+}
+
+Car.prototype = Object.create(Vehicle.prototype);
+Car.prototype.constructor = Car;
+
+var car = new Car();
+
+car.go(100);
+car.go(50);
+car.stop();
+console.log (car.engine)

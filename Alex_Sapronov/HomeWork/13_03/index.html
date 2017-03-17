@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Home Work 13.03.2017</title>
+</head>
+
+<body>
+	<div class="tank_parameters" id="tank_parameters">
+		<div class="tank_img" id="tank_img">
+			<p id="Create"></p>
+		</div>
+		<div class="tank_helth" id=>
+			<p id="Helth" id="Helth"></p>
+			<p id="Armor" id="Armor"></p>
+			<p id="Shell" id="Shell"></p>
+			<p id="Fire" id="Fire"></p>
+			<p id="Fuel" id="Fuel"></p>
+			<p id="Distans" id="Distans"></p>
+
+		</div>
+	</div>
+	<br>
+	<button id="create_tank" name="create_tank" onclick="t_34 = new Tank(10,'T-34');z.add_on(t_34.name);">Create T-34</button>
+
+
+
+	<button id="button_fire" name="button_fire" onclick="t_34.fire()">Fire T-34</button>
+
+	<button id="button_go" name="button_go" onclick="t_34.moove()">GO!R T-34</button>
+
+	<button id="button_reamm" name="button_reamm" onclick="t_34.rearm(10,5)">Reamr T-34</button>
+
+	<br>
+	<br>
+		<button id="create_tankMorph" name="create_tankMorph" onclick="is_1 = new TankMorph(2,2,'IC-1');z.add_on(is_1.name);">Create IS-1</button>
+		<button id="create_tankMorph" name="create_tankMorph" onclick="is_2 = new TankMorph(3,5,'IC-2');z.add_on(is_2.name);">Create IS-2</button>
+		<button id="create_tankMorph" name="create_tankMorph" onclick="is_3 = new TankMorph(5,2,'IC-3');z.add_on(is_3.name);">Create IS-3</button>
+	<script src="./index.js"></script>
+</body>
+
+</html>
