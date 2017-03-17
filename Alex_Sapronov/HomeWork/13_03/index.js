@@ -1,17 +1,4 @@
-﻿var helth_ind = document.getElementById('Helth');
-var armor_ind = document.getElementById('Armor');
-var shell_ind = document.getElementById('Shell');
-var fuel_ind = document.getElementById('Fuel');
-var distans_ind = document.getElementById('Distans');
-var tank_create = document.getElementById('Create');
-var button_create = document.getElementById('create_tank');
-var fire_ind = document.getElementById('Fire')//links to texp out to web page
-var button_go = document.getElementById('button_go');
-var button_fire = document.getElementById('button_fire');
-var button_reamm = document.getElementById('button_reamm');
-var button_create_morph = document.getElementById('create_tankMorph');
-
-function Tank(ammunition, name) {//tank generator
+﻿function Tank(ammunition, name) {//tank generator
     this.fuel = 100;
     if (!isNaN(ammunition) && ammunition > 0) this.ammunition = ammunition;//chek shell number
     else this.ammunition = 10;
@@ -40,7 +27,7 @@ function Tank(ammunition, name) {//tank generator
     this.fire = function () {//shell down until zero by fireng
         if (this.ammunition > 0) {
             this.ammunition -= this.turret;
-            fire_count--;
+            fire_count++;
             console.log('Boom!!');
         }
         else {
