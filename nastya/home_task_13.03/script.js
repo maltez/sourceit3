@@ -46,16 +46,17 @@ FiveBattleTank.prototype = Object.create(Tank.prototype);
 FiveBattleTank.prototype.constructor = FiveBattleTank;
 
 
-	var arrTanks = []; //array of tanks on playground
+	
 
 /* Declaration Function constructor*/
 function Playground() {
-	this.quantityTanks = 4;
+	this.arrTanks = []; //array of tanks on playground
+	
 }
 /*Write the object's methods to the object's prototype*/
-Playground.prototype.addTanks = function () {
-	if (arrTanks.length < 4) {
-		arrTanks.push(new FiveBattleTank(8, 10));
+Playground.prototype.addTanks = function (newTank) {
+	if (this.arrTanks.length < 4) {
+		this.arrTanks.push(newTank);
 		
 	} else {
 		throw new Error("You should put on playground no more than 4 tanks");
@@ -82,8 +83,8 @@ console.log(fiveBattleTank.quantityCartriges);
 
 
 var playground = new Playground();
-playground.addTanks();
-playground.addTanks();
-playground.addTanks();
-playground.addTanks();
-console.log(arrTanks);
+playground.addTanks(fiveBattleTank);
+playground.addTanks(battleTank);
+playground.addTanks(fiveBattleTank);
+playground.addTanks(battleTank);
+console.log(playground.arrTanks);
