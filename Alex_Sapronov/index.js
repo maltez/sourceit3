@@ -379,7 +379,7 @@ var car = {engine:true};
 
 car._proto_ = vehicle //все свойства объекта vehicle добавяться к объекту car используеться для уже созданных объектов
 
-console.log(car);*/
+console.log(car);
  //наследование через прототип
  function Vehicle(){
      this.wheels = 4;
@@ -387,6 +387,7 @@ console.log(car);*/
  }
 
 Vehicle.prototype.go = function(speed){
+
     this.speed += speed;
     console.log('we go with '+this.speed + 'speed');
 }
@@ -410,4 +411,13 @@ var car = new Car();
 car.go(100);
 car.go(50);
 car.stop();
-console.log (car.engine)
+console.log (car.engine)*/
+
+function Home(){//можно будет вызывать даже без создания объекта
+}
+Home.street = function (){
+    var street_name = 'Pobedy';
+    return street_name;
+}
+Home.street(); // сработает статически метод оживляем функцию без копии объекта и недоступен в копиях объекта
+
