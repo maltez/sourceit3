@@ -3,31 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <title>Game Tanks</title>
-    <style>
-    #PlayingField{
-        background-color: green;
-        width: 500px;
-        height: 500px;
-        margin: 50px;
-        overflow: hidden;
-    }
-    #playingTank{
-        width: 50px;
-        height: 50px;
-        background: red;
-        background-image: url("./tank.jpg");
-    }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
-<body>
-    
+<body> 
+
+
 <div id = "PlayingField">
     <div id = "playingTank"></div>
 </div>
     
-Fuel: <div id = "fuel"></div> 
-Cartridges: <div id = "cartridges"></div>  
-
+<div id = 'panel'>
+Fuel: <div id = "fuel"></div>
+Cartridges: <div id = "cartridges"></div>
+<p>Key control:</p> 
+← ↑ ↓ → - moove,
+space - fire,
+r - recharge.
+</div>
 <script src="./game.js">
 </script>
 </body>
