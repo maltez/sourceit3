@@ -2,6 +2,8 @@
 function Tank(fuel, cartridges) {
     this.fuel = fuel;
     this.cartridges = cartridges;
+    this.fuelConsumption = 1;
+    this.ammunitionConsumption = 1;
     this.crewmembers = []; // For the crew
     this.playingTank = document.getElementById("playingTank");
     this.actualFuel = document.getElementById("fuel");
@@ -9,14 +11,6 @@ function Tank(fuel, cartridges) {
     this.actualFuel.innerHTML = this.fuel;
     this.actualCartridges.innerHTML = this.cartridges;
 }
-
-    Tank.prototype.engine = function() {
-        this.fuel--;
-    };
-    
-    Tank.prototype.gun = function() {
-        this.cartridges--;
-    };
 
     Tank.prototype.moove = function(keyCode) {
         // Get the style for playingTank
@@ -31,22 +25,22 @@ function Tank(fuel, cartridges) {
                 case 37:  // left key
                     if(this.left > 0)
                             this.playingTank.style.marginLeft = this.left - 10 + "px";
-                            this.engine();
+                            this.fuel = this.fuel - this.fuelConsumption;
                     break;
                 case 38:   // up key
                     if(this.top > 0)
                             this.playingTank.style.marginTop = this.top - 10 + "px";
-                            this.engine();
+                            this.fuel = this.fuel - this.fuelConsumption;
                     break;
                 case 39:   // right key
                     if(this.left < 450)
                             this.playingTank.style.marginLeft = this.left + 10 + "px";
-                            this.engine();
+                            this.fuel = this.fuel - this.fuelConsumption;
                     break;
                 case 40:   // down key
                     if(this.top < 450)
                             this.playingTank.style.marginTop = this.top + 10 + "px";
-                            this.engine();
+                            this.fuel = this.fuel - this.fuelConsumption;
                     break;
             }
         }
@@ -59,9 +53,9 @@ function Tank(fuel, cartridges) {
         if (this.cartridges < 1){
             console.log('The cartridges are over!');
         } else { 
-            me.playingTank.style.backgroundImage = "none";
+            this.playingTank.style.backgroundImage = "none";
             setTimeout(function() { me.playingTank.style.backgroundImage = "url(\"./tank.jpg\")"; }, 50);
-            this.gun();
+            this.cartridges = this.cartridges - this.ammunitionConsumption;
         }
         
         this.actualCartridges.innerHTML = this.cartridges;
@@ -82,19 +76,14 @@ function Tank(fuel, cartridges) {
 function ModernizedTank(fuel, cartridges) {
     // Functional-based inheritance of the constructor Tank
     Tank.apply(this, [fuel, cartridges]);
+    
+    this.fuelConsumption = 2;
+    this.ammunitionConsumption = 5;
 }
 
 // Prototype-based inheritance
 ModernizedTank.prototype = Object.create(Tank.prototype);
 ModernizedTank.prototype.constructor = ModernizedTank;
-
-    ModernizedTank.prototype.engine = function() {
-        this.fuel -= 2;
-    };
-    
-    ModernizedTank.prototype.gun = function() {
-        this.cartridges -= 5;
-    };
 
 function PlayingField() {
     this.arrTank = [];
