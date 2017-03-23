@@ -196,7 +196,8 @@ function TankMorph(turret, power, name) {//new tank this new parameters
 }
 
 New_demo.onclick = function () {//tank will moovin around pole until user press Q
-      var event = new Event("onkeydown");
+      var event = new Event("onkeydown"); 
+      player_name.innerText = "demo";
       function navigator(demoarray){
          var j=0,d=0;
          for (var i=0; i<10000; i++){
@@ -219,7 +220,7 @@ New_demo.onclick = function () {//tank will moovin around pole until user press 
         New_demo.hidden = true;
         navigator(demoarr);
     }, 500);
-    player_name.innerText = "demo";  
+     
 } 
     
 
