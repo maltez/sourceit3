@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="style.css">
+	<title>Home Work 20.03.2017 - Танкодром</title>
+</head>
+
+<body>
+	<center><input id="name_player" placeholder="Player Name" style = "height: 50px;width: 200px;
+																	 border-style: double; 
+																	 border-color: black; 
+																	 border-radius: 10px;
+																	 text-align: center;"></center>
+	<div class="Start" id="New_Game" name="create_game" style = "
+											background-image: url('img/start.png');
+											height: 200px;
+											width: 400px;
+											margin: auto; ">
+	</div>
+	<div class="Start_demo" id="New_demo" name="create_demo" style = "height: 200px;
+											width: 400px;
+											margin: auto; text-align: center; ">Start DEMO (click Q to stop)
+	</div>
+	<div id="game_space" style ="background-image: url('img/board.jpg'); 
+								height: 600px;
+								width: 1000px;
+								border-color: black;
+								border-radius: 10px ;
+								box-shadow: 8px 8px 8px darkolivegreen; 
+								border-style: double;">
+		<div id='tank_im' style = "height: 100px; 
+								width: 100px;
+								background-image: url('img/tank_backward.png');
+								background-position: center center;
+								background-repeat: no-repeat;
+								margin-left: 0px;
+								margin-top: 0px;">
+		</div>
+	</div>
+	<div id="legenda" style = "background-image: url('img/legend.png'); 
+							  border-style: dotted;
+							  border-radius: 5px;
+							  position: absolute; 
+							  margin-left: 1010px;
+							  margin-top: -600px;
+							  height: 600px;
+							  width: 200px; " >
+		<br>
+		<center id="player_name" style = "font-size: 24px; color:darkblue;">-n-o-n-a-m-e-</center>
+		<p style = "text-align: center; padding-left: 10px;"> FUEL - <b id="fuel" style = "text-align: center; color:red; font-size: 20px;">100 l.</b></p>
+		<p style = "text-align: center; padding-left: 15px;"> SHELLS - <b id="shells" style = "text-align: center; color:red; font-size: 20px;">20 x</b></p>
+		<p style = "text-align: center; padding-left: 15px;"> ARMOR - <b id="armor" style = "text-align: center; color:red; font-size: 20px;">100 %</b></p>
+		<p style = "text-align: center; padding-left: 15px;"> HEALTH - <b id="helth" style = "text-align: center; color:red; font-size: 20px;">100 %</b></p>
+		<br>
+		<br>
+		<p style = "text-align: center; padding-left: 15px;"> DISTANS - <b id="track" style = "text-align: center; color:red; font-size: 20px;">0 m</b></p>
+		<p style = "text-align: center; padding-left: 15px;"> SHOOTS - <b id="fires" style = "text-align: center; color:red; font-size: 20px;">0</b></p>	
+	</div>
+	
+	<script> 
+	
+	</script>
+	<script src="./index.js"></script>
+</body>
+
+</html>
