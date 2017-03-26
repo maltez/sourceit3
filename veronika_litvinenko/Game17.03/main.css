@@ -1,0 +1,186 @@
+html, body {
+
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+p{
+	padding: 0;
+	margin: 0;
+}
+
+.clearfix::after {
+
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.game-wrapper {
+
+	background-color: black;
+	width: 98%;
+	height: auto;
+	padding:1%;
+}
+
+.field {
+
+	background: url(images/field.jpeg) no-repeat;
+    background-size: cover;
+    float: left;
+    width: 950px;
+    height: 600px;
+    padding: 25px;
+    box-sizing: border-box;
+    border: 4px solid #071d07;
+}
+
+#tank {
+
+    width: 136px;
+    height: 101px;
+    position: relative;
+    background: url(images/tnk.jpg) no-repeat;
+    margin-top: 0px;
+    background-size: contain;
+    
+}
+
+/*#tank img {
+
+	width: 200%;
+    height: 96%;
+    
+
+}*/
+
+.menu {
+
+	float: right;
+	background: url('images/menu2.jpg') no-repeat;
+	background-size: 100% 100%;
+	width: 358px;
+    height: 600px;
+    box-sizing: border-box;
+    border: 4px solid #1f0d0d;
+
+	padding-top: 45px;
+
+	padding-left: 10px;;
+
+}
+
+.status{
+
+	font-size: 30px;
+    color: white;
+    font-weight: bolder;
+    background-color: black;
+    width: 287px;;
+    height: 50px;
+    margin: 0 auto;
+    padding: 6px 92px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    opacity: 0.9;
+}
+
+.result{
+	background-color: #230202;
+    width: 287px;
+    height: 90px;
+    margin: 0 auto;
+    border-radius: 10px;
+    opacity: 0.9;
+    margin-bottom: 21px;
+    font-size: 50px;
+    color: #a59e9e;
+    padding: 10px 119px;
+    box-sizing: border-box;
+
+}
+
+.arrows{
+
+	width: 200px;
+
+	margin: 0 auto;
+
+	font-size: 20px;
+
+	color: white;
+
+	font-weight: 600;
+
+	height: 129px;
+
+}
+
+.arrows img{
+
+	width: 176px;
+
+	height: auto;
+
+}
+
+.space{
+
+	width: 147px;
+
+	height: 76px;
+
+	display: inline-block;
+
+	margin-right: 55px;
+
+	color: white;
+
+	font-weight: 600;
+
+	vertical-align: top;
+
+	font-size: 16px;
+
+}
+
+.space img{
+
+	width: 83px;
+
+	height: 42px;
+
+	padding: 0;
+
+	display: block;
+
+	margin: 0 auto;
+
+}
+
+.r{
+
+	display: inline-block;
+
+	font-size: 16px;
+
+	font-weight: 600;
+
+	color: white;
+
+}
+
+.r img {
+
+	width: 43px;
+
+	height: 40px;
+
+	display: block;
+
+	margin: 0 auto;
+
+}
