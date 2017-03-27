@@ -8,10 +8,10 @@ var shell_ind = document.getElementById("shells");
 var fuel_ind = document.getElementById("fuel");
 var shoots = document.getElementById("fires");
 var dist = document.getElementById("track"); //indicators
-var br=false;
+var br = false;
 var last_key = "ArrowDown";
 var key_down = "ArrowDown";
-var demoarr = ["ArrowRight"," ", "ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight"," ", " ", " ", "ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight"," ", " ", " ", "ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight"," ", " ", " ", "ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight","ArrowRight"," ", " ", " ", "ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowDown","ArrowLeft","ArrowLeft"," ", " ", " ", "ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft"," ", " ", " ", "ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft"," ", " ", " ","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowLeft","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp"," ", " ", " ", "ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp","ArrowUp"];
+var demoarr = ["ArrowRight", " ", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", " ", " ", " ", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", " ", " ", " ", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", " ", " ", " ", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", "ArrowRight", " ", " ", " ", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowDown", "ArrowLeft", "ArrowLeft", " ", " ", " ", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", " ", " ", " ", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", " ", " ", " ", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowLeft", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", " ", " ", " ", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp", "ArrowUp"];
 game_boasr.hidden = true;
 legenda.hidden = true;
 tank_im.backgroundImage = 'url(img/tank_backward.png)';
@@ -21,7 +21,7 @@ var poligon = new Game_space();
 
 window.onkeydown = function (event) {
     key_down = event.key;
-     if (event.key == "ArrowRight") { //moove rigth button
+    if (event.key == "ArrowRight") { //moove rigth button
         tank_im.style.backgroundImage = 'url(img/tank_rigth.png)';
         tank.moove(last_key, event.key);
         last_key = event.key;
@@ -41,7 +41,7 @@ window.onkeydown = function (event) {
         tank.moove(last_key, event.key);
         last_key = event.key;
     }
-    if (event.key == "q"){ if (br) br=false; else br=true;}
+    if (event.key == "q") { if (br) br = false; else br = true; }
 
     if (event.key == " ") {//fire button
         tank.fire();
@@ -75,7 +75,7 @@ function Tank(name) {//tank generator
     var distans = 0;
     this.power = 2;
     this.name = name;
-   // this.shell = 100;
+    // this.shell = 100;
     this.caterpillar = 2;
     this.wheels = 0;
     this.turret = 1;
@@ -196,23 +196,23 @@ function TankMorph(turret, power, name) {//new tank this new parameters
 }
 
 New_demo.onclick = function () {//tank will moovin around pole until user press Q
-      var event = new Event("onkeydown"); 
-      player_name.innerText = "demo";
-      function navigator(demoarray){
-         var j=0,d=0;
-         for (var i=0; i<10000; i++){
-                setTimeout( function(){
-                    if (br) return null;
-                    event.key = demoarray[j];
-                    if (tank.fuel==0||tank.ammunition==0) event.key = 'r';
-                    else j++;
-                    if (j==demoarray.length-1) j=0;
-                    window.onkeydown(event);
-                    },100+i*50)
-           } 
-      }
-     console.log('Demo Started');
-     setTimeout(function () {
+    var event = new Event("onkeydown");
+    player_name.innerText = "demo";
+    function navigator(demoarray) {
+        var j = 0, d = 0;
+        for (var i = 0; i < 10000; i++) {
+            setTimeout(function () {
+                if (br) return null;
+                event.key = demoarray[j];
+                if (tank.fuel == 0 || tank.ammunition == 0) event.key = 'r';
+                else j++;
+                if (j == demoarray.length - 1) j = 0;
+                window.onkeydown(event);
+            }, 100 + i * 50)
+        }
+    }
+    console.log('Demo Started');
+    setTimeout(function () {
         player_input.hidden = true;
         new_game.hidden = true;
         game_boasr.hidden = false;
@@ -220,9 +220,9 @@ New_demo.onclick = function () {//tank will moovin around pole until user press 
         New_demo.hidden = true;
         navigator(demoarr);
     }, 500);
-     
-} 
-    
+
+}
+
 
 function Game_space() {
     this.content = [];

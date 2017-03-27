@@ -411,7 +411,7 @@ var car = new Car();
 car.go(100);
 car.go(50);
 car.stop();
-console.log (car.engine)*/
+console.log (car.engine)
 
 function Home(){//можно будет вызывать даже без создания объекта
 }
@@ -419,5 +419,5 @@ Home.street = function (){
     var street_name = 'Pobedy';
     return street_name;
 }
-Home.street(); // сработает статически метод оживляем функцию без копии объекта и недоступен в копиях объекта
+Home.street(); // сработает статически метод оживляем функцию без копии объекта и недоступен в копиях объекта*/
 

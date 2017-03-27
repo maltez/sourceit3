@@ -144,7 +144,7 @@ window.addEventListener('keydown', statOnKey);
 refill.onclick = function () {
 
   // call method 'refill'
-  battleTank.refill(10, 10);
+  battleTank.refill(100, 100);
   return [document.getElementById('fuel-balance').value = battleTank.quantityFuel,
     document.getElementById('cartrige-balance').value = battleTank.quantityCartriges
   ];
