@@ -5,7 +5,7 @@ describe('getEvenNumbers', function(){
         assert.equal(8, result);
     });
     
-    it('When input 1 expected 1', function(){
+    it('When input 1 expected Empty array', function(){
         var result = getEvenNumbers([1]);
         assert.equal(0, result.length);
     });
