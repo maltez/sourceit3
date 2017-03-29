@@ -1,0 +1,71 @@
+#PlayingField{
+    background-color: green;
+    width: 500px;
+    height: 500px;
+    margin: 10px;
+    overflow: hidden;
+    float: left;
+    position: relative;
+}
+
+#playingTank{
+    width: 50px;
+    height: 50px;
+    background: red;
+    background-image: url("./tank.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#TankBot_1{
+    width: 50px;
+    height: 50px;
+    background: red;
+    background-image: url("./bot_1.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    visibility: hidden;
+}
+
+#TankBot_2{
+    width: 50px;
+    height: 50px;
+    background: red;
+    background-image: url("./bot_2.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 100px;
+    left: 150px;
+    visibility: hidden;
+}
+
+#TankBot_3{
+    width: 50px;
+    height: 50px;
+    background: red;
+    background-image: url("./bot_3.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    visibility: hidden;
+}
+
+#panel{
+    margin: 10px;
+    padding: 10px;
+    float: left;
+    background: sandybrown;
+}
+#addBot{
+    margin-bottom: 10px;
+}
+
