@@ -154,7 +154,7 @@ class Playground {
 }
 
 
-let battleTank = new Tank(25, 25);
+let battleTank = new Tank(250, 250);
 /*declaration function for control tank*/
 let moveTankOnKey = function (e) {
 	switch (e.keyCode) {
