@@ -10,7 +10,6 @@ class Tank {
 			this.quantityCartriges = cartriges;
 			document.getElementById('cartrige-balance').value = this.quantityCartriges;
 			this.tankObj = document.getElementById('tank');
-			// this.id = 'tank'+ Math.floor(Math.random()*10);
 			this.crew = 4;
 
 		}
@@ -61,10 +60,10 @@ class Tank {
 			this.quantityCartriges = this.quantityCartriges - this.cartrigesConsumption;
 
 			this.tankObj.style.backgroundColor = 'red'; //change background on space click
-			var bg = function () {
-				self.tankObj.style.backgroundColor = "#eeeeee"
+			var backgroundFire = function () {
+				self.tankObj.style.backgroundColor = "#eeeeee";
 			}
-			setTimeout(bg, 50); // change background back through time
+			setTimeout(backgroundFire, 50); // change background back through time
 
 		}
 	}
