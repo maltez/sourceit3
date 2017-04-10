@@ -1,4 +1,5 @@
 /* Declaration Function constructor*/
+'use strict'
 
 class Tank {
 
